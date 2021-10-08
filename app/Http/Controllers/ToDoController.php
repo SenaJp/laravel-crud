@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Tarefa;
+use Illuminate\Http\Request;
 
 class ToDoController extends Controller
 {
-    public function index(){
-    $listas = [
-        'Test 1',
-        'Test 2',
-        'Test 3'
-    ];
-    return view ('lists.index' , ['listas'=> $listas]);
+    public function index()
+    {
+    $tarefas = Tarefa::all();
+    return view('lists.index', ['tarefas'=>$tarefas]); //como faço para puxar a variável do index?
+
     }
 
     public function create()
@@ -18,12 +18,14 @@ class ToDoController extends Controller
         return view('lists.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request) //salvar no banco
     {
-        $name = $request->tarefa;
-        $tarefa = new tarefa();
-        $tarefa->name = $name;
-        var_dump($tarefa->save());
+
+        $task = $request->tarefa;
+        $new_task = new Tarefa();
+        $new_task->task =$task;
+        $new_task->save();
+
 
     }
 }
