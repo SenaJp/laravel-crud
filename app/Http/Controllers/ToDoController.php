@@ -13,8 +13,6 @@ class ToDoController extends Controller
         $mensagem = $request->session()->get('mensagem');
 
         return view('lists.index', ['tarefas'=>$tarefas, 'mensagem'=>$mensagem]);
-
-
     }
 
     public function create()
@@ -36,7 +34,17 @@ class ToDoController extends Controller
             "Tarefa {$new_task->id} adicionada com sucesso!"
         );
 
-
         return redirect('/index'); //redireciona para o index
+    }
+
+    Public function destroy(Request $request){
+        Tarefa::destroy($request->id);
+        $request->session()
+            ->flash(
+            'mensagem',
+            "A tarefa foi removida com sucesso!"
+             );
+        return redirect('/index');
+
     }
 }
