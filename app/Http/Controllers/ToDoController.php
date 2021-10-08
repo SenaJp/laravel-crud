@@ -6,10 +6,14 @@ use Illuminate\Http\Request;
 
 class ToDoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
     $tarefas = Tarefa::all();
-    return view('lists.index', ['tarefas'=>$tarefas]); //como faço para puxar a variável do index?
+
+        $mensagem = $request->session()->get('mensagem');
+
+        return view('lists.index', ['tarefas'=>$tarefas, 'mensagem'=>$mensagem]);
+
 
     }
 
@@ -26,6 +30,13 @@ class ToDoController extends Controller
         $new_task->task =$task;
         $new_task->save();
 
+        $request->session()
+        ->flash(
+            'mensagem',
+            "Tarefa {$new_task->id} adicionada com sucesso!"
+        );
 
+
+        return redirect('/index'); //redireciona para o index
     }
 }
