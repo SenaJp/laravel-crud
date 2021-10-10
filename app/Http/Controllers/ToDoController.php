@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\TaskFormRequest;
 use App\Tarefa;
 use Illuminate\Http\Request;
 
@@ -20,9 +22,8 @@ class ToDoController extends Controller
         return view('lists.create');
     }
 
-    public function store(Request $request) //salvar no banco
+    public function store(TaskFormRequest $request) //salvar no banco
     {
-
         $task = $request->tarefa;
         $new_task = new Tarefa();
         $new_task->task =$task;
@@ -34,7 +35,7 @@ class ToDoController extends Controller
             "Tarefa {$new_task->id} adicionada com sucesso!"
         );
 
-        return redirect('/index'); //redireciona para o index
+        return redirect()->route('all_tasks'); //redireciona para o index
     }
 
     Public function destroy(Request $request){
@@ -44,7 +45,7 @@ class ToDoController extends Controller
             'mensagem',
             "A tarefa foi removida com sucesso!"
              );
-        return redirect('/index');
+        return redirect()->route('all_tasks');
 
     }
 }
