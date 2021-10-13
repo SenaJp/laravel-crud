@@ -14,7 +14,22 @@ To Do List!
         <ul class="list-group">
             @foreach($tarefas as $tarefa)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{ $tarefa->task; }}
+                    <span id="task-name-{{ $tarefa->id }}">{{ $tarefa->task }}</span>
+                    <div class="input-group w-50" hidden id="input-task-name-{{ $tarefa->id }}">
+                        <input type="text" class="form-control" value="{{ $tarefa->task }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" onclick="editTask({{ $tarefa->id }})">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            @csrf
+                        </div>
+                    </div>
+
+                    <span class="d-flex">
+                        <button class="btn btn-info btn-sm mr-1" onclick="toggleInput({{ $tarefa->id }})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+
                     <form method="POST" action="/index/{{$tarefa->id}}"
                         onsubmit="return confirm('Tem certeza que deseja remover essa tarefa?')">
                         @csrf
@@ -26,5 +41,49 @@ To Do List!
                 </li>
             @endforeach
         </ul>
+
+<script>
+    function  toggleInput(taskId) {
+        const nameTaskEl = document.getElementById(`task-name-${taskId}`);
+        const inputTaskEl = document.getElementById(`input-task-name-${taskId}`);
+
+       if (nameTaskEl.hasAttribute('hidden'))
+       {
+            nameTaskEl.removeAttribute('hidden');
+            inputTaskEl.hidden = true;
+       } else {
+            inputTaskEl.removeAttribute('hidden');
+            nameTaskEl.hidden = true;
+        }
+    }
+
+    function editTask(taskId) {
+        let formData = new FormData();
+        const name = document.
+        querySelector(`#input-task-name-${taskId} > input`)
+        .value;
+        
+        const token = document.querySelector('input[name="_token"]').value;
+
+        formData.append('name', name);
+        formData.append('_token', token);
+        
+        const url = `/index/${taskId}/editaTarefa`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        }). then(() => {
+            toggleInput (taskId);
+            document.getElementById(`task-name-${taskId}`).textContent = name;
+
+        });
+    }
+
+
+
+
+
+</script>
+
 @endsection
 

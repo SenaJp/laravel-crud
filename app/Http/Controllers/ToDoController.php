@@ -46,6 +46,13 @@ class ToDoController extends Controller
             "A tarefa foi removida com sucesso!"
              );
         return redirect()->route('all_tasks');
+    }
 
+    public function editTask(int $id, Request $request)
+    {
+        $new_task = $request->name;
+        $task = Tarefa::find($id);
+        $task -> task = $new_task;
+        $task->save();
     }
 }
