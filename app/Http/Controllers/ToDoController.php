@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TaskFormRequest;
-use App\Tarefa;
+use App\Models\Tarefa;
 use Illuminate\Http\Request;
+use App\Http\Requests\TaskFormRequest;
 
 class ToDoController extends Controller
 {
@@ -24,9 +24,8 @@ class ToDoController extends Controller
 
     public function store(TaskFormRequest $request) //salvar no banco
     {
-        $task = $request->tarefa;
         $new_task = new Tarefa();
-        $new_task->task =$task;
+        $new_task->task = $request->tarefa;
         $new_task->save();
 
         $request->session()
@@ -55,4 +54,5 @@ class ToDoController extends Controller
         $task -> task = $new_task;
         $task->save();
     }
+
 }
