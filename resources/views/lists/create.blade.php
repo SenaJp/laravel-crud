@@ -6,15 +6,8 @@ Adicionar tarefa
 
 @section('content')
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@include('errors', ['errors' => $errors])
+
 
     <form method="post">
         @csrf
@@ -24,4 +17,5 @@ Adicionar tarefa
         </div>
         <button class="btn btn-primary mb-2">Adicionar</button>
     </form>
+
 @endsection
