@@ -1,17 +1,21 @@
-<h1> Challenge accepted! </h1>
+<h1> Challenge accepted! 💀 </h1>
 
-CRUD desenvolvido baseado nos requisitos propopostos pela equipe de desenvolvimento da Kapsula. O programa devera conter as seguintes funcionalidades: 
+CRUD em desenvolvimento, material sendo atualizado no decorrer dos processos.
+
+## Objetivos 🎯
 
 <ul>
     <li> Autenticação por login e senha. <br> </li>
-    <li> CRUD de usuários (criação, exibição, atualização e deleção). <br> </li>     
-    <li> Todas as listagens devem possuir busca e paginação de 20 itens. <br> </li>       
+    <li> CRUD de usuários (criação, exibição, atualização, e deleção 🚷). <br> </li>     
+    <li> Todas as listagens devem possuir busca e paginação de 20 itens. <br> </li>    
+    <li> O usuário será relacionado as suas tarefas, mas não pode ter acesso as tarefas de outro usuário.<br> </li>    
+    <li> ... <br> </li>    
 </ul>
 
+## Ferramentas utilizadas 🪚 
 
-<h2> Objetivo </h2>
-
-O software tem como finalidade a organização pessoal do usuário, oferecendo para o mesmo a possibilidade de criação, edição, exclusão e sinalização da tarefa como concluída.
-
-
-
+<ul>
+    <li> Laravel 8 <br> </li>    
+    <li> JavaScript <br> </li> 
+    <li> Bootstrap 4 <br> </li>    
+</ul>
