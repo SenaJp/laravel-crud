@@ -38,7 +38,7 @@ class ToDoController extends Controller
         $request->session()
         ->flash(
             'mensagem',
-            "Tarefa {$new_task->id} adicionada com sucesso!"
+            "Tarefa adicionada com sucesso!"
         );
 
         return redirect()->route('all_tasks');

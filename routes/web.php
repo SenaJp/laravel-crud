@@ -34,3 +34,8 @@ Route::POST('/entrar', [LogController::class, 'login']);
 
 Route::get('/registrar', [RegisterController::class, 'create']);
 Route::POST('/registrar', [RegisterController::class, 'store']);
+
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/entrar');
+});
