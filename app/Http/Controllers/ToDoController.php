@@ -29,7 +29,7 @@ class ToDoController extends Controller
         return view('lists.create');
     }
 
-    public function store(TaskFormRequest $request) //salvar no banco
+    public function store(TaskFormRequest $request)
     {
         $new_task = new Tarefa();
         $new_task->task = $request->tarefa;
@@ -41,7 +41,7 @@ class ToDoController extends Controller
             "Tarefa {$new_task->id} adicionada com sucesso!"
         );
 
-        return redirect()->route('all_tasks'); //redireciona para o index
+        return redirect()->route('all_tasks');
     }
 
     Public function destroy(Request $request){
