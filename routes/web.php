@@ -3,24 +3,7 @@
 use App\Http\Controllers\ToDoController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-require __DIR__.'/auth.php';
 
 Route::get('/index',[ToDoController::class, 'index']) -> name('all_tasks');
 Route::get('/index/criar',[ToDoController::class, 'create']) -> name('create_tasks');
@@ -34,3 +17,8 @@ Route::POST('/entrar', [LogController::class, 'login']);
 
 Route::get('/registrar', [RegisterController::class, 'create']);
 Route::POST('/registrar', [RegisterController::class, 'store']);
+
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/entrar');
+});
