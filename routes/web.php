@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ToDoController;
 use App\Http\Controllers\LogController;
-
+use App\Http\Controllers\RegisterController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,3 +31,6 @@ Route::post('/index/{id}/completarTarefa', [ToDoController::class, 'complete']);
 
 Route::get('/entrar', [LogController::class, 'index']);
 Route::POST('/entrar', [LogController::class, 'login']);
+
+Route::get('/registrar', [RegisterController::class, 'create']);
+Route::POST('/registrar', [RegisterController::class, 'store']);

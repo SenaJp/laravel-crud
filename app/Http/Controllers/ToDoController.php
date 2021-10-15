@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\TaskFormRequest;
 
 class ToDoController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Request $request)
     {
     $tarefas = Tarefa::all();
