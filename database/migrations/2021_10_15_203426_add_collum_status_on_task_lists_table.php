@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldCompleteTask extends Migration
+class AddCollumStatusOnTaskListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddFieldCompleteTask extends Migration
     public function up()
     {
         Schema::table('task_lists', function (Blueprint $table) {
-            $table
-                ->boolean('complete')
-                ->default('false');
+            $table->tinyinteger('status')->default(1);
         });
     }
 
@@ -28,7 +26,7 @@ class AddFieldCompleteTask extends Migration
     public function down()
     {
         Schema::table('task_lists', function (Blueprint $table) {
-            $table->dropColumn('complete');
+            $table->dropColumn('status');
         });
     }
 }

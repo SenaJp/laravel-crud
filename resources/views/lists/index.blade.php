@@ -9,7 +9,7 @@ To Do List!
 @section('content')
 
 @if (!empty($mensagem))
-<div class="alert alert-success"> {{ $mensagem }}</div>
+<div class="alert alert-success">{{ $mensagem }}</div>
 @endif
 
 <a href="/index/criar" class="btn btn-dark mb-2">Adicionar tarefa</a>
@@ -18,7 +18,7 @@ To Do List!
             @foreach($tarefas as $tarefa)
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <span id="task-name-{{ $tarefa->id }}">{{ $tarefa->task}}</span>
+                    <span id="task-name-{{ $tarefa->id }}">{{$tarefa->task}}</span>
                     <div class="input-group w-50" hidden id="input-task-name-{{ $tarefa->id }}">
                         <input type="text" class="form-control" value="{{ $tarefa->task }}">
                         <div class="input-group-append">
@@ -33,7 +33,7 @@ To Do List!
                         <form method="POST" action="/index/{{$tarefa->id}}/completarTarefa"
                         onsubmit="return confirm('Tem certeza que deseja concluir a tarefa?')">
                         <button class="btn btn-success btn-sm mr-1">
-                            <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-check-circle"></i>
                             @csrf
                          </form>
 
@@ -50,13 +50,9 @@ To Do List!
                             <i class="far fa-trash-alt"></i>
                         </button>
                     </form>
-
                 </li>
-
             @endforeach
         </ul>
-
-
 <script>
     function  toggleInput(taskId) {
         const nameTaskEl = document.getElementById(`task-name-${taskId}`);
@@ -89,12 +85,7 @@ To Do List!
         }). then(() => {
             toggleInput (taskId);
             document.getElementById(`task-name-${taskId}`).textContent = name;
-
         });
     }
 </script>
-
-
-
 @endsection
-

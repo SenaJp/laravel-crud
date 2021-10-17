@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tarefa extends Model //representa a tabela no banco
+class Tarefa extends Model
 {
     const INCOMPLETO = 1;
     const COMPLETO = 2;
@@ -12,6 +12,4 @@ class Tarefa extends Model //representa a tabela no banco
 
     protected $table = 'task_lists';
     public $timestamps = false;
-   
-
 }
