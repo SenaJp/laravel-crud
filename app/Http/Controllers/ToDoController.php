@@ -17,8 +17,7 @@ class ToDoController extends Controller
 
     public function index(Request $request)
     {
-    $tarefas = Tarefa::all();
-
+    $tarefas = Tarefa::where('status', 1)->get();
         $mensagem = $request->session()->get('mensagem');
 
         return view('lists.index', ['tarefas'=>$tarefas, 'mensagem'=>$mensagem]);
@@ -60,6 +59,29 @@ class ToDoController extends Controller
         $task = Tarefa::find($id);
         $task -> task = $new_task;
         $task->save();
+    }
+
+    public function complete_task(request $request, int $id)
+    {
+        $old_status = $request->status;
+        $old_status = Tarefa::find($id);
+        $old_status->status = 2;
+        $old_status->save();
+
+        $request->session()
+        ->flash(
+            'mensagem',
+            "Tarefa concluída com sucesso!"
+        );
+
+        return redirect('/index');
+    }
+
+    public function tasks_complete()
+    {
+        $tarefas = Tarefa::where('status', 2)->get();
+
+        return view('lists.complete', ['tarefas'=>$tarefas]);
     }
 
 }

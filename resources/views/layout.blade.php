@@ -18,8 +18,7 @@
         @auth
         <a type="button" class="btn btn-danger btn-sm" href="/logout">Sair</a>
         @endauth
-      
-      </nav>
+    </nav>
 
 <div class="container">
     <div class="jumbotron">

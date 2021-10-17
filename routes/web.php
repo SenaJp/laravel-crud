@@ -10,7 +10,9 @@ Route::get('/index/criar',[ToDoController::class, 'create']) -> name('create_tas
 Route::post('/index/criar',[ToDoController::class, 'store']);
 Route::delete('/index/{id}',[ToDoController::class, 'destroy']);
 Route::post('/index/{id}/editaTarefa', [ToDoController::class, 'editTask']);
-Route::post('/index/{id}/completarTarefa', [ToDoController::class, 'complete']);
+
+Route::get('index/tarefasCompletas', [ToDoController::class, 'tasks_complete']);
+Route::post('/index/{id}/completarTarefa', [ToDoController::class, 'complete_task']);
 
 Route::get('/entrar', [LogController::class, 'index']);
 Route::POST('/entrar', [LogController::class, 'login']);
