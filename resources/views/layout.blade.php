@@ -26,7 +26,9 @@
     </div>
         @yield('content')
 </div>
-
-
 </body>
+
+<footer>
+
+</footer>
 </html>

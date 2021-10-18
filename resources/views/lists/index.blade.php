@@ -16,7 +16,7 @@ To Do List!
 <a href="/index/tarefasCompletas" class="btn btn-success mb-2">Tarefas completas</a>
 
             @foreach($tarefas as $tarefa)
-            <ul class="list-group">
+            <ul class="list-group mb-5">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span id="task-name-{{ $tarefa->id }}">{{$tarefa->task}}</span>
                     <div class="input-group w-50" hidden id="input-task-name-{{ $tarefa->id }}">
