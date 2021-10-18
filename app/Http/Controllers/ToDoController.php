@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
+use Illuminate\app\models\user;
 use App\Http\Requests\TaskFormRequest;
 
 class ToDoController extends Controller
@@ -17,7 +17,7 @@ class ToDoController extends Controller
 
     public function index(Request $request)
     {
-    $tarefas = Tarefa::where('status', 1)->paginate(2);
+    $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->paginate(20);
 
         $mensagem = $request->session()->get('mensagem');
         return view('lists.index', [
@@ -35,6 +35,7 @@ class ToDoController extends Controller
     {
         $new_task = new Tarefa();
         $new_task->task = $request->tarefa;
+        $new_task->user_id = auth()->id();
         $new_task->save();
 
         $request->session()
@@ -46,7 +47,7 @@ class ToDoController extends Controller
         return redirect()->route('all_tasks');
     }
 
-    Public function destroy(Request $request){
+    public function destroy(Request $request){
         Tarefa::destroy($request->id);
         $request->session()
             ->flash(
@@ -82,7 +83,7 @@ class ToDoController extends Controller
 
     public function tasks_complete()
     {
-        $tarefas = Tarefa::where('status', 2)->get();
+        $tarefas = Tarefa::where('status', 2)->where('user_id', auth()->id())->paginate(20);
 
         return view('lists.complete', ['tarefas'=>$tarefas]);
     }
