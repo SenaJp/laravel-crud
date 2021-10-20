@@ -1,6 +1,4 @@
-<h1> Challenge accepted! 💀 </h1>
-
-CRUD em desenvolvimento, material sendo atualizado no decorrer dos processos.
+<h1> CRUD on Laravel!  </h1>
 
 ## Objetivos 🎯
 
@@ -9,7 +7,7 @@ CRUD em desenvolvimento, material sendo atualizado no decorrer dos processos.
     <li> CRUD de usuários (criação, exibição, atualização, e deleção.). <br> </li>     
     <li> Todas as listagens devem possuir busca e paginação de 20 itens. <br> </li>    
     <li> O usuário será relacionado as suas tarefas, mas não pode ter acesso as tarefas de outro usuário.<br> </li>    
-    <li> ... <br> </li>    
+
 </ul>
 
 ## Ferramentas utilizadas 🪚 
@@ -19,3 +17,5 @@ CRUD em desenvolvimento, material sendo atualizado no decorrer dos processos.
     <li> JavaScript <br> </li> 
     <li> Bootstrap 4 <br> </li>    
 </ul>
+
+
