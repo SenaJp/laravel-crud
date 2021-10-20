@@ -22,7 +22,7 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'task' => 'Houston, everything worked out'
         ];
     }
 }

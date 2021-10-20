@@ -26,9 +26,7 @@
     </div>
         @yield('content')
 </div>
+<div class = "container">
+    <div class = "d-flex">@yield('footer')</div>
 </body>
-
-<footer>
-
-</footer>
 </html>

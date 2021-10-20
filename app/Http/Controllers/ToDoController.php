@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\app\models\user;
 use App\Http\Requests\TaskFormRequest;
 
 class ToDoController extends Controller
@@ -17,7 +16,7 @@ class ToDoController extends Controller
 
     public function index(Request $request)
     {
-    $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->paginate(20);
+    $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->simplePaginate(20);
 
         $mensagem = $request->session()->get('mensagem');
         return view('lists.index', [
@@ -83,7 +82,7 @@ class ToDoController extends Controller
 
     public function tasks_complete()
     {
-        $tarefas = Tarefa::where('status', 2)->where('user_id', auth()->id())->paginate(20);
+        $tarefas = Tarefa::where('status', 2)->where('user_id', auth()->id())->simplepaginate(20);
 
         return view('lists.complete', ['tarefas'=>$tarefas]);
     }

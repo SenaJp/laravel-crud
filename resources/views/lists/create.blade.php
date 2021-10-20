@@ -17,5 +17,12 @@ Adicionar tarefa
         </div>
         <button class="btn btn-primary mb-2">Adicionar</button>
     </form>
+@endsection
 
+@section('footer')
+<style>
+    .w-5{
+        display:none
+    }
+</style>
 @endsection

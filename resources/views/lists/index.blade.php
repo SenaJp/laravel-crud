@@ -16,7 +16,7 @@ To Do List!
 <a href="/index/tarefasCompletas" class="btn btn-success mb-2">Tarefas completas</a>
 
             @foreach($tarefas as $tarefa)
-            <ul class="list-group mb-5">
+            <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span id="task-name-{{ $tarefa->id }}">{{$tarefa->task}}</span>
                     <div class="input-group w-50" hidden id="input-task-name-{{ $tarefa->id }}">
@@ -52,6 +52,7 @@ To Do List!
                     </form>
                 </li>
             @endforeach
+
         </ul>
 <script>
     function  toggleInput(taskId) {
@@ -88,4 +89,13 @@ To Do List!
         });
     }
 </script>
+@endsection
+
+@section('footer')
+{{$tarefas->links()}}
+<style>
+    .w-5{
+        display:none
+    }
+</style>
 @endsection

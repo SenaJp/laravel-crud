@@ -4,15 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\app\models\user;
+use Illuminate\database\seeders\UserSeeder;
 
 class Tarefa extends Model
 {
-    const INCOMPLETO = 1;
-    const COMPLETO = 2;
-
+    const INCOMPLETE = 1;
+    const COMPLETE = 2;
 
     protected $table = 'task_lists';
     public $timestamps = false;
+
+    Protected $fillable = [
+        'task',
+    ];
 
     public function user()
     {
