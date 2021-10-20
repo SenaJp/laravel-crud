@@ -24,3 +24,5 @@ Route::get('/logout', function(){
     Auth::logout();
     return redirect('/entrar');
 });
+
+Route::get('index/search', [ToDoController::class, 'search'])->name('task_search');

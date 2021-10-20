@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\TaskFormRequest;
 
 class ToDoController extends Controller
 {
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
 
     public function index(Request $request)
     {
-    $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->simplePaginate(20);
+        $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->simplePaginate(20);
 
         $mensagem = $request->session()->get('mensagem');
         return view('lists.index', [
@@ -46,13 +47,14 @@ class ToDoController extends Controller
         return redirect()->route('all_tasks');
     }
 
-    public function destroy(Request $request){
+    public function destroy(Request $request)
+    {
         Tarefa::destroy($request->id);
         $request->session()
             ->flash(
-            'mensagem',
-            "A tarefa foi removida com sucesso!"
-             );
+                'mensagem',
+                "A tarefa foi removida com sucesso!"
+            );
         return redirect()->route('all_tasks');
     }
 
@@ -85,5 +87,17 @@ class ToDoController extends Controller
         $tarefas = Tarefa::where('status', 2)->where('user_id', auth()->id())->simplepaginate(20);
 
         return view('lists.complete', ['tarefas'=>$tarefas]);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->filter;
+        $user_id = $request;
+
+        $result = Tarefa::where('task', '=', $search)->where('user_id', auth()->id())->paginate();
+
+       return view('lists.search', [
+        'tarefas'=>$result
+    ]);
     }
 }

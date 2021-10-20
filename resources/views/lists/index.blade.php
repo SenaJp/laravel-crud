@@ -15,6 +15,12 @@ To Do List!
 <a href="/index/criar" class="btn btn-dark mb-2">Adicionar tarefa</a>
 <a href="/index/tarefasCompletas" class="btn btn-success mb-2">Tarefas completas</a>
 
+<hr>
+<form action = "index/search" method="get" class="for form inline">
+    @csrf
+    <input type="text" name="filter" placeholder="Filtrar" class="form-control">
+    <button type="submit" class="btn btn-info">Pesquisar</button>
+</form>
             @foreach($tarefas as $tarefa)
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -92,10 +98,5 @@ To Do List!
 @endsection
 
 @section('footer')
-{{$tarefas->links()}}
-<style>
-    .w-5{
-        display:none
-    }
-</style>
+
 @endsection
