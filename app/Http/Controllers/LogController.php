@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\TaskFormRequest;
-
 class LogController extends Controller
 {
     public function index()
@@ -21,7 +18,6 @@ class LogController extends Controller
             ->back()
             ->withErrors('Usuário e/ou senha incorretos');
         }
-
         return redirect()->route('all_tasks');
     }
 }

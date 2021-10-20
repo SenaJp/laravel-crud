@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\TaskFormRequest;
 
 class ToDoController extends Controller
@@ -17,7 +16,7 @@ class ToDoController extends Controller
 
     public function index(Request $request)
     {
-        $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->paginate(1);
+        $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->paginate(20);
 
         $mensagem = $request->session()->get('mensagem');
         return view('lists.index', [
@@ -84,7 +83,7 @@ class ToDoController extends Controller
 
     public function tasks_complete()
     {
-        $tarefas = Tarefa::where('status', 2)->where('user_id', auth()->id())->paginate(2);
+        $tarefas = Tarefa::where('status', 2)->where('user_id', auth()->id())->paginate(20);
 
         return view('lists.complete', ['tarefas'=>$tarefas]);
     }
@@ -95,7 +94,7 @@ class ToDoController extends Controller
         $result = Tarefa::where([['task', 'like', '%'.$search.'%']])
                         ->where('user_id', auth()->id())
                         ->where('status', '=', 1)
-                        ->paginate(2);
+                        ->paginate(20);
 
        return view('lists.search', [
         'tarefas'=>$result
@@ -108,7 +107,7 @@ class ToDoController extends Controller
         $result = Tarefa::where([['task', 'like', '%'.$search.'%']])
                         ->where('user_id', auth()->id())
                         ->where('status', '=', 2)
-                        ->paginate(2);
+                        ->paginate(20);
 
        return view('lists.search', [
         'tarefas'=>$result
