@@ -1,12 +1,19 @@
 @extends('layout')
 
 @section('header')
-Tarefas concluídas
+Tarefas concluídas ✔️
 @endsection
 
 @section('content')
 
 
+<div class="d-flex flex-column">
+<div><form action = "index/searchComplete" method="get" class="for form inline">
+    @csrf
+    <input type="text" name="filter" placeholder="Filtrar tarefas concluídas" class="form-control">
+    <button type="submit" class="btn btn-info mt-2">Pesquisar</button>
+</form></div>
+<hr>
 
 @foreach($tarefas as $tarefa)
 <div>

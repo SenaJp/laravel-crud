@@ -11,7 +11,7 @@ Route::post('/index/criar',[ToDoController::class, 'store']);
 Route::delete('/index/{id}',[ToDoController::class, 'destroy']);
 Route::post('/index/{id}/editaTarefa', [ToDoController::class, 'editTask']);
 
-Route::get('index/tarefasCompletas', [ToDoController::class, 'tasks_complete']);
+Route::get('/tarefasCompletas', [ToDoController::class, 'tasks_complete']);
 Route::post('/index/{id}/completarTarefa', [ToDoController::class, 'complete_task']);
 
 Route::get('/entrar', [LogController::class, 'index']);
@@ -25,4 +25,5 @@ Route::get('/logout', function(){
     return redirect('/entrar');
 });
 
-Route::get('index/search', [ToDoController::class, 'search'])->name('task_search');
+Route::get('index/search', [ToDoController::class, 'search']);
+Route::get('index/searchComplete', [ToDoController::class, 'searchComplete']);

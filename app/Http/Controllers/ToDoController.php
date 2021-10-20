@@ -92,9 +92,23 @@ class ToDoController extends Controller
     public function search(Request $request)
     {
         $search = $request->filter;
-        $user_id = $request;
+        $result = Tarefa::where('task', '=', $search)
+                        ->where('user_id', auth()->id())
+                        ->where('status', '=', 1)
+                        ->paginate(20);
 
-        $result = Tarefa::where('task', '=', $search)->where('user_id', auth()->id())->paginate();
+       return view('lists.search', [
+        'tarefas'=>$result
+    ]);
+    }
+
+    public function searchComplete(Request $request)
+    {
+        $search = $request->filter;
+        $result = Tarefa::where('task', '=', $search)
+                        ->where('user_id', auth()->id())
+                        ->where('status', '=', 2)
+                        ->paginate(20);
 
        return view('lists.search', [
         'tarefas'=>$result

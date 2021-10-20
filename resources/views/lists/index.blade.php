@@ -3,7 +3,7 @@
 
 
 @section('header')
-To Do List!
+Gerenciador de tarefas 📚
 @endsection
 
 @section('content')
@@ -12,15 +12,17 @@ To Do List!
 <div class="alert alert-success">{{ $mensagem }}</div>
 @endif
 
-<a href="/index/criar" class="btn btn-dark mb-2">Adicionar tarefa</a>
-<a href="/index/tarefasCompletas" class="btn btn-success mb-2">Tarefas completas</a>
-
-<hr>
-<form action = "index/search" method="get" class="for form inline">
+<div class="d-flex">
+<div class="p-2"><a href="/index/criar" class="btn btn-dark mb-2">Adicionar tarefa</a></div>
+<div class="p-2"><a href="/tarefasCompletas" class="btn btn-success mb-2">Tarefas completas</a></div>
+<div class="ml-auto p-2"><form action = "index/search" method="get" class="for form inline">
     @csrf
-    <input type="text" name="filter" placeholder="Filtrar" class="form-control">
-    <button type="submit" class="btn btn-info">Pesquisar</button>
-</form>
+    <input type="text" name="filter" placeholder="Buscar por tarefa" class="form-control">
+    <span class="mt-2"><button type="submit" class="btn btn-info mt-2 align-right">Pesquisar</button>
+</form></div>
+</div>
+
+<p class="lead">Tarefas incompletas:</p>
             @foreach($tarefas as $tarefa)
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -98,5 +100,5 @@ To Do List!
 @endsection
 
 @section('footer')
-
+{{ $tarefas->links() }}
 @endsection

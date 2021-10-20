@@ -22,7 +22,7 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1>@yield('header')</h1>
+        <h1 class="display-4 align-self-center">@yield('header')</h1>
     </div>
         @yield('content')
 </div>
