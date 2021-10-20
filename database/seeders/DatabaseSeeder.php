@@ -16,17 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        try {
-            DB::beginTransaction();
-
-            $user = User::factory()->create();
-
-            $task = Tarefa::factory()->make();
-
-            $user -> task()->create($task->toarray());
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollback();
-        }
+        DB::table('task_lists')->insert([
+            'name' => Str::random(10),
+            'email' => Str::random(10).'@gmail.com',
+            'password' => Hash::make('password'),
+        ]);
     }
 }

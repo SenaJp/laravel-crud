@@ -14,6 +14,8 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        $task = Tarefa::factory()->create();
+        User::factory()
+        ->count(50)
+        ->create();
     }
 }
