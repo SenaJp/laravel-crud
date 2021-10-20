@@ -13,4 +13,5 @@ Resultado da pesquisa:
             <span id="task-status-{{ $tarefa->status }}">{{ $tarefa->task}}</span>
     </div>
 @endforeach
+<div class="mt-2">{{ $tarefas->appends(request()->input())->links(); }}</div>
 @endsection

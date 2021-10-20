@@ -17,7 +17,7 @@ class ToDoController extends Controller
 
     public function index(Request $request)
     {
-        $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->simplePaginate(20);
+        $tarefas = Tarefa::where('status', 1)->where('user_id', auth()->id())->paginate(1);
 
         $mensagem = $request->session()->get('mensagem');
         return view('lists.index', [
@@ -84,7 +84,7 @@ class ToDoController extends Controller
 
     public function tasks_complete()
     {
-        $tarefas = Tarefa::where('status', 2)->where('user_id', auth()->id())->simplepaginate(20);
+        $tarefas = Tarefa::where('status', 2)->where('user_id', auth()->id())->paginate(2);
 
         return view('lists.complete', ['tarefas'=>$tarefas]);
     }
@@ -92,10 +92,10 @@ class ToDoController extends Controller
     public function search(Request $request)
     {
         $search = $request->filter;
-        $result = Tarefa::where('task', '=', $search)
+        $result = Tarefa::where([['task', 'like', '%'.$search.'%']])
                         ->where('user_id', auth()->id())
                         ->where('status', '=', 1)
-                        ->paginate(20);
+                        ->paginate(2);
 
        return view('lists.search', [
         'tarefas'=>$result
@@ -105,10 +105,10 @@ class ToDoController extends Controller
     public function searchComplete(Request $request)
     {
         $search = $request->filter;
-        $result = Tarefa::where('task', '=', $search)
+        $result = Tarefa::where([['task', 'like', '%'.$search.'%']])
                         ->where('user_id', auth()->id())
                         ->where('status', '=', 2)
-                        ->paginate(20);
+                        ->paginate(2);
 
        return view('lists.search', [
         'tarefas'=>$result

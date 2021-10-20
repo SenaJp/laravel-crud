@@ -17,7 +17,7 @@ Gerenciador de tarefas 📚
 <div class="p-2"><a href="/tarefasCompletas" class="btn btn-success mb-2">Tarefas completas</a></div>
 <div class="ml-auto p-2"><form action = "index/search" method="get" class="for form inline">
     @csrf
-    <input type="text" name="filter" placeholder="Buscar por tarefa" class="form-control">
+    <input type="text" name="filter" placeholder="Buscar por tarefa" class="form-control" required>
     <span class="mt-2"><button type="submit" class="btn btn-info mt-2 align-right">Pesquisar</button>
 </form></div>
 </div>
