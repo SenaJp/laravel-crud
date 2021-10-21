@@ -1,6 +1,4 @@
-<h1> Challenge accepted! 💀 </h1>
-
-CRUD em desenvolvimento, material sendo atualizado no decorrer dos processos.
+<h1> CRUD on Laravel!  </h1>
 
 ## Objetivos 🎯
 
@@ -10,12 +8,14 @@ CRUD em desenvolvimento, material sendo atualizado no decorrer dos processos.
     <li> Todas as listagens devem possuir busca e paginação de 20 itens. <br> </li>    
     <li> O usuário será relacionado as suas Tasks, mas não pode ter acesso as Tasks de outro usuário.<br> </li>    
     <li> ... <br> </li>    
-</ul>
 
 ## Ferramentas utilizadas 🪚 
 
 <ul>
-    <li> Laravel 8 <br> </li>    
-    <li> JavaScript <br> </li> 
-    <li> Bootstrap 4 <br> </li>    
+    <img height="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg"/>   
+    <img height="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+    <img height="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain-wordmark.svg"/>   
 </ul>
+
+
+ 
