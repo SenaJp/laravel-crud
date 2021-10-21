@@ -24,7 +24,7 @@ class TaskFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'tarefa'=>'required|min:5' //campo dentro do create
+            'Task'=>'required|min:5' //campo dentro do create
         ];
     }
 
