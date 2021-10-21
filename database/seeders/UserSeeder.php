@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tarefa;
+use App\Models\Task;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;

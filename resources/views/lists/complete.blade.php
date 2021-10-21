@@ -17,12 +17,12 @@ Tarefas concluídas ✔️
     </div>
 <hr>
 
-@foreach($tarefas as $tarefa)
+@foreach($Tasks as $Task)
 <div>
     <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span id="task-status-{{ $tarefa->status }}">{{ $tarefa->task}}</span>
+            <span id="task-status-{{ $Task->status }}">{{ $Task->task}}</span>
 </div>
 @endforeach
-<div class="mt-2">{{ $tarefas->links() }}</div>
+<div class="mt-2">{{ $Tasks->links() }}</div>
 @endsection

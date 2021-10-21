@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\app\models\user;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\database\seeders\UserSeeder;
 
-class Tarefa extends Model
+class Task extends Model
 {
+    use HasFactory;
+
     const INCOMPLETE = 1;
     const COMPLETE = 2;
 
@@ -15,6 +18,7 @@ class Tarefa extends Model
     public $timestamps = false;
 
     Protected $fillable = [
+        'user_id',
         'task',
     ];
 

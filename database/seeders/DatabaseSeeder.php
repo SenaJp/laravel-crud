@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Tarefa;
+use App\Models\Task;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,10 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('task_lists')->insert([
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
+
+        User::factory(10)->has(Task::factory(rand(20,23)))->create();
     }
 }
