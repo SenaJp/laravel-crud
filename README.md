@@ -25,4 +25,4 @@
 >> 1 - Composer install </br>
 >> 2 - php artisan key:generate
 
-Well done, take control of you tasks and enjoy it! �
+Well done, take control of you tasks and enjoy it! 
