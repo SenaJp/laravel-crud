@@ -1,16 +1,15 @@
-<h1 align="center"> Controlador de Tarefas  </h2>
+<h1 align="center"> Tasks control  </h2>
 <br>
 
-## Objetivos 🎯
-
+## Functions ⚙️
 <ul>
-    <li> Autenticação por login e senha. <br> </li>
-    <li> CRUD de usuários (criação, exibição, atualização, e deleção). <br> </li>     
-    <li> Todas as listagens possuem busca e paginação de 20 itens. <br> </li>    
-    <li> O usuário é relacionado as suas tarefas, mas não pode ter acesso as Tasks de outro usuário.<br> </li>     
+    <li> User authentication (E-mail and password). <br> </li>
+    <li> The application performs the presentation, creation, editing and deletion of information. <br> </li>     
+    <li> All pages contains paginate with 20 items. <br> </li>    
+    <li> Relationship between user and tasks. <br> </li>     
 </ul>
 
-## Ferramentas utilizadas 🪚 
+## Tools used 🪚 
 
 <ul>
     <li>Laravel 8</li>
@@ -19,8 +18,11 @@
     <li>SQlite</li>
 </ul>
 
-## Requisitos: 
+## Requires to use: 
     
-<ul>
-    <li>Composer</li>
-</ul>
+>  Composer
+>> How to use: </br>
+>> 1 - Composer install </br>
+>> 2 - php artisan key:generate
+
+Well done, take control of you tasks and enjoy it! 
