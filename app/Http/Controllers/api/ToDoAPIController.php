@@ -22,12 +22,12 @@ class ToDoAPIController extends Controller
         return response($users, 200);
     }
 
-    public function getUsersTasks(request $request)
+    public function getUserTasks(request $request)
     {
-        $user = $request->user_id;
+        $user_id = $request->user_id;
 
-        if (Task::where('user_id', $user)->exists()) {
-            $user = Task::where('user_id', '=', $user)->paginate(100)->toJson(JSON_PRETTY_PRINT);
+        if (Task::where('user_id', $user_id)->exists()) {
+            $user = Task::where('user_id', '=', $user_id)->paginate(100)->toJson(JSON_PRETTY_PRINT);
             return response($user, 200);
         } else {
             return response()->json([

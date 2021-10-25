@@ -23,10 +23,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/AllTasks',[ToDoAPIController::class, 'getAllTasks']);
-Route::get('/user',[ToDoAPIController::class, 'getUsersTasks']);
+Route::get('/user/tasks/{user_id}',[ToDoAPIController::class, 'getUserTasks']);
 Route::get('/AllUsers',[ToDoAPIController::class, 'getAllUsers']);
-Route::get('user/{id}',[ToDoAPIController::class, 'getUser']);
+Route::get('/user/{id}',[ToDoAPIController::class, 'getUser']);
+
 Route::put('user/{id}',[ToDoAPIController::class, 'updateUser']);
 Route::delete('delete/{id}',[ToDoAPIController::class, 'deleteUser']);
+
 Route::post('createUser',[ToDoAPIController::class, 'createUser']);
 Route::post('createTask',[ToDoAPIController::class, 'createTask']);
