@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Mail\NewTask;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\TaskFormRequest;
 
 class ToDoController extends Controller
@@ -36,6 +38,15 @@ class ToDoController extends Controller
         $new_task->task = $request->Task;
         $new_task->user_id = auth()->id();
         $new_task->save();
+
+        $email  = new NewTask(
+            $request->task
+        );
+
+        $user = $request->user();
+        $email->subject = "Nova tarefa criada";
+
+        Mail::to($user)->queue($email);
 
         $request->session()
         ->flash(
