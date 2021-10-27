@@ -6,7 +6,8 @@
     <li> User authentication (E-mail and password). <br> </li>
     <li> The application performs the presentation, creation, editing and deletion of information. <br> </li>     
     <li> All pages contains paginate with 20 items. <br> </li>    
-    <li> Relationship between user and tasks. <br> </li>     
+    <li> Relationship between user and tasks. <br> </li>
+    <li> The application sends emails with each new task record. <br> </li>
 </ul>
 
 ## Tools used 🪚 
@@ -24,5 +25,9 @@
 >> How to use: </br>
 >> 1 - Composer install </br>
 >> 2 - php artisan key:generate
+
+> The application works with queues
+>> For the emails to be sent it is necessary to use the command: <br>
+>> php artisan queue:listen
 
 Well done, take control of you tasks and enjoy it! 
