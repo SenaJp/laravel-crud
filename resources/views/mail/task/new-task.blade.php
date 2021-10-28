@@ -2,6 +2,6 @@
 
 # Nova tarefa registrada!
 
-Segue abaixo mais informações: {{$task}}
+Entre no app e confira.
 
 @endcomponent
