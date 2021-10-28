@@ -8,8 +8,8 @@
     <li> All pages contains paginate with 20 items. <br> </li>    
     <li> Relationship between user and tasks. <br> </li>
     <li> The application sends emails with each new task record. <br> </li>
-    <li> the application has an API. <br> </li>
-
+    <li> The application has an API. <br> </li>
+    <li> For sending emails I recommend https://mailtrap.io/ <br> </li>
 </ul>
 
 ## Tools used 🪚 
