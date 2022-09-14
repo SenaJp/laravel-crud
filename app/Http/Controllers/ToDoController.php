@@ -46,7 +46,7 @@ class ToDoController extends Controller
         $user = $request->user();
         $email->subject = "Nova tarefa criada";
 
-        Mail::to($user)->queue($email);
+        // Mail::to($user)->queue($email);
 
         $request->session()
         ->flash(
